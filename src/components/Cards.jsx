@@ -1,41 +1,55 @@
 import React from 'react';
-import './Cards.css'; // optional: if you want to apply styles
+import './Cards.css';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+  
+};
 
 const Cards = () => {
   return (
+    
     <div id="card-area">
+      <h2 style={{ textAlign: 'center', marginBottom: '1rem', color: '#388E3C' }}>
+                Problemes d'aujourdhui
+            </h2>
       <div className="wrapper">
         <div className="box-area">
-          <div className="box">
-            <img src="/images/pain.jpg" alt="pain" />
-            <div className="overlay">
-              <h3>Consommation de Pain</h3>
-              <p>
-                113 000 tonnes de pain sont gaspillées <br /> chaque année en Tunisie.
-              </p>
-              {/* <a href="#">Read More</a> */}
-            </div>
-          </div>
-          <div className="box">
-            <img src="/images/dinar.jpg" alt="dinar" />
-            <div className="overlay">
-              <h3>Coût pour les Ménages</h3>
-              <p>
-                Une famille tunisienne gaspille en moyenne <br/> 240 dinars par an en nourriture.
-              </p>
-              {/* <a href="#">Read More</a> */}
-            </div>
-          </div>
-          <div className="box">
-            <img src="/images/food.jpg" alt="food" />
-            <div className="overlay">
-              <h3>Quantité par Habitant</h3>
-              <p>
-                Le gaspillage alimentaire est estimé à <br/> 172 kg par personne par an.
-              </p>
-              {/* <a href="#">Read More</a> */}
-            </div>
-          </div>
+          {[
+            {
+              src: '/images/pain.jpg',
+              title: 'Consommation de Pain',
+              text: '113 000 tonnes de pain sont gaspillées chaque année en Tunisie.',
+            },
+            {
+              src: '/images/dinar.jpg',
+              title: 'Coût pour les Ménages',
+              text: 'Une famille tunisienne gaspille en moyenne 240 dinars par an en nourriture.',
+            },
+            {
+              src: '/images/food.jpg',
+              title: 'Quantité par Habitant',
+              text: 'Le gaspillage alimentaire est estimé à 172 kg par personne par an.',
+            },
+          ].map((card, index) => (
+            <motion.div
+              className="box"
+              key={index}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <img src={card.src} alt={card.title} />
+              <div className="overlay">
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

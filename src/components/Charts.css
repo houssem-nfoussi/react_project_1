@@ -1,0 +1,12 @@
+/* charts.css */
+.charts-container {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  
+  .charts-container.fade-in {
+    opacity: 1;
+  }
+  
+  /* Add styles as needed */
+  
