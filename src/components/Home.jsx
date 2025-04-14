@@ -8,7 +8,7 @@ import  Carousel  from './Carousel.jsx'
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      
 
       <div className="hero">
         <img src="/images/gaspillage-alimentaire.jpg" alt="Gaspillage Alimentaire" />
@@ -27,7 +27,7 @@ const Home = () => {
 
       <Cards/>
      <Carousel/>
-      <Footer />
+     
     </div>
   )
 }

@@ -1,27 +1,27 @@
 import React from 'react';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
-const { Header, Footer } = Layout;
+const { Header } = Layout;
 
-// Custom menu items
 const items = [
-  
-  { key: 'about', label: 'About' },
+  { key: 'home', label: 'Home' },
   { key: 'services', label: 'Services' },
-  { key: 'Login', label: 'Login' },
-  { key: 'logout', label: 'Log' },
+  { key: 'login', label: 'Logout' },
 ];
 
 const Navbar = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    navigate(`/${e.key}`);
+  };
 
   return (
     <Layout>
       <Header
         style={{
-          backgroundColor: '#4CAF50', // soft green
+          backgroundColor: '#4CAF50',
           display: 'flex',
           alignItems: 'center',
           borderBottom: '2px solid #388E3C',
@@ -43,16 +43,15 @@ const Navbar = () => {
           mode="horizontal"
           defaultSelectedKeys={['home']}
           items={items}
+          onClick={handleClick}
           style={{
             flex: 1,
             minWidth: 0,
-            backgroundColor: '#4CAF50', // match header
+            backgroundColor: '#4CAF50',
             borderRadius: '8px',
           }}
         />
       </Header>
-
-      
     </Layout>
   );
 };
