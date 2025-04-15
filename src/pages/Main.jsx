@@ -5,15 +5,18 @@ import Cards from '../components/Cards.jsx';
 import Carrousel from '../components/Carousel.jsx';
 import Footer from '../components/Footer.jsx';
 import Charts from '../components/Charts.jsx';
+
 const LayoutWrapper = () => {
 
   return (
     <div className="layout-wrapper">
+      
       <Navbar />
+      <Carrousel/>
       <Home/>
       <Charts/>
       <Cards/>
-      <Carrousel/>
+      
       <Footer/>
     </div>
   );

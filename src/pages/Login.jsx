@@ -15,11 +15,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent page reload
     // You can add auth logic here later
-    navigate('/home');
+    navigate('/'); // Redirecting to /
   };
 
   return (
-    
     <div className="login-page">
       <div className="login-container">
         <form onSubmit={handleSubmit}>

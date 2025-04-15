@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 const { Header } = Layout;
 
+// Update 'home' key to ''
 const items = [
-  { key: 'home', label: 'Home' },
+  { key: '', label: 'Home' },
   { key: 'services', label: 'Services' },
   { key: 'login', label: 'Logout' },
 ];
@@ -41,7 +42,7 @@ const Navbar = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['home']}
+          defaultSelectedKeys={['']}
           items={items}
           onClick={handleClick}
           style={{
