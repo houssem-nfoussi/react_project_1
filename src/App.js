@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
-import Home from './components/Home.jsx';
 import Services from './pages/Services.jsx';
-import Footer from './components/Footer.jsx';
 import Login from './pages/Login.jsx';
 import Main from './pages/Main.jsx';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

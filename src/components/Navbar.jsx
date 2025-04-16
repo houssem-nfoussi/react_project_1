@@ -1,57 +1,62 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Layout } from 'antd';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import './Navbar.css';
 
 const { Header } = Layout;
 
-// Update 'home' key to ''
 const items = [
-  { key: '', label: 'Home' },
+  { key: '', label: 'Accueil' },
   { key: 'services', label: 'Services' },
-  { key: 'login', label: 'Logout' },
+  { key: 'login', label: 'Se déconnecter' },
 ];
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleClick = (e) => {
-    navigate(`/${e.key}`);
+  const fadeIn = {
+    hidden: { opacity: 0, y: -10 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.5 },
+    }),
+  };
+
+  const handleClick = (key) => {
+    navigate(`/${key}`);
   };
 
   return (
     <Layout>
-      <Header
-        style={{
-          backgroundColor: '#4CAF50',
-          display: 'flex',
-          alignItems: 'center',
-          borderBottom: '2px solid #388E3C',
-        }}
-      >
-        <div
+      <Header className="custom-header">
+        <motion.div
           className="logo"
-          style={{
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: '20px',
-            marginRight: '20px',
-          }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
         >
           🌱 Stop Gaspillage
-        </div>
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['']}
-          items={items}
-          onClick={handleClick}
-          style={{
-            flex: 1,
-            minWidth: 0,
-            backgroundColor: '#4CAF50',
-            borderRadius: '8px',
-          }}
-        />
+        </motion.div>
+        <ul className="custom-menu">
+          {items.map((item, index) => (
+            <motion.li
+              key={item.key}
+              className={`menu-item ${
+                location.pathname.replace('/', '') === item.key ? 'active' : ''
+              }`}
+              onClick={() => handleClick(item.key)}
+              custom={index}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+            >
+              {item.label}
+            </motion.li>
+          ))}
+        </ul>
       </Header>
     </Layout>
   );

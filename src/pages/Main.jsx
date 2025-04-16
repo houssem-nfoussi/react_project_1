@@ -5,6 +5,7 @@ import Cards from '../components/Cards.jsx';
 import Carrousel from '../components/Carousel.jsx';
 import Footer from '../components/Footer.jsx';
 import Charts from '../components/Charts.jsx';
+import QuoteCarousel from '../components/QuoteCarousel.jsx';
 
 const LayoutWrapper = () => {
 
@@ -16,7 +17,7 @@ const LayoutWrapper = () => {
       <Home/>
       <Charts/>
       <Cards/>
-      
+      <QuoteCarousel/>
       <Footer/>
     </div>
   );

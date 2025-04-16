@@ -1,59 +1,51 @@
-/* Carousel Container */
-.carousel-container {
-  width: 100vw;
-  height: 700px; /* Adjust this for your specific needs */
-  overflow: hidden; /* Prevent overflow of content */
-  position: relative; /* Position for absolute children */
+/* Wrapper */
+.carousel-wrapper {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Hide Arrows for Carousel */
-.ant-carousel .slick-arrow {
-  display: none; /* Hides the default arrows */
+/* Slide base */
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
 }
 
-/* Dots Styling (if you wish to enable them later) */
-.ant-carousel .slick-dots {
-  bottom: 20px;
+/* Full background image */
+.carousel-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
-.ant-carousel .slick-dots li button {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
+/* Overlay content */
+.carousel-overlay {
+  position: absolute;
+  top: 25%;
+  left: 8%;
+  z-index: 2;
+  color: white;
+  max-width: 50%;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
-.ant-carousel .slick-dots li.slick-active button {
-  background: #fff; /* Active dot color */
-}
-
-/* Slide Title */
+/* Title */
 .carousel-title {
-  font-size: 2.5rem; /* Adjust title size */
-  margin-bottom: 15px;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Slide Description */
+/* Description */
 .carousel-description {
-  font-size: 1.3rem; /* Adjust description size */
-  color: #eeeeee;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  max-width: 40%; /* Limits the width of the description text */
-}
-
-/* Optional - Centering Content */
-.carousel-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* Aligns items to the start */
-  padding: 20px 50px; /* Space around the content */
-  height: 100%; /* Full height of the slide */
-}
-
-/* Full height of carousel slides */
-.ant-carousel .slick-slide {
-  height: 700px; /* Match the height used in contentStyle */
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #f0f0f0;
 }

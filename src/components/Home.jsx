@@ -22,8 +22,8 @@ const Home = () => {
         variants={fadeIn}
       >
         <div className="hero-side-text">
-          <h2>Pourquoi agir ?</h2>
-          <p>Chaque geste compte pour réduire le gaspillage alimentaire à la source.</p>
+          <h2>c'est quoi le gaspillage allimentaire?</h2>
+          <p>Le gaspillage alimentaire désigne l’ensemble des aliments destinés à la consommation humaine qui sont perdus, jetés ou non consommés.</p>
         </div>
 
         <div className="hero-center">
@@ -36,7 +36,7 @@ const Home = () => {
 
         <div className="hero-side-text">
           <h2>Notre Mission</h2>
-          <p>Informer, sensibiliser et aider les foyers à adopter des habitudes durables.</p>
+          <p>"Sensibiliser et guider les foyers vers une consommation responsable en réduisant le gaspillage alimentaire au quotidien.</p>
         </div>
       </motion.div>
      
