@@ -70,7 +70,7 @@ const Footer = () => {
         transition={{ duration: 0.6, delay: 1 }}
         viewport={{ once: true }}
       >
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <p>&copy; 2025  FoodRescue. All rights reserved.</p>
       </motion.div>
     </footer>
   );

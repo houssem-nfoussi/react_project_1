@@ -15,9 +15,9 @@ const App = () => {
       description: 'Help us feed the world by reducing food waste',
     },
     {
-      title: 'Spead awereness',
+      title: 'Spread awareness',
       image: '/images/HD2.jpg',
-      description: 'let those around you know the dangers of wasting food.',
+      description: 'Let those around you know the dangers of wasting food.',
     },
     {
       title: 'Help those in need',
@@ -25,9 +25,9 @@ const App = () => {
       description: 'Use your surplus to make a difference — feed those who need it most.',
     },
     {
-      title: 'Help those in need',
+      title: 'Act now',
       image: '/images/HD4.jpg',
-      description: 'Use your surplus to make a difference — feed those who need it most.',
+      description: 'Join us in creating a more sustainable and compassionate world.',
     },
   ];
 

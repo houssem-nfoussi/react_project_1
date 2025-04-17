@@ -25,15 +25,19 @@
   z-index: 1;
 }
 
-/* Overlay content */
+/* Overlay content - Bottom Right */
 .carousel-overlay {
   position: absolute;
-  top: 25%;
-  left: 8%;
+  bottom: 8%; /* Adjust as needed for vertical positioning from the bottom */
+  right: 8%; /* Adjust as needed for horizontal positioning from the right */
   z-index: 2;
   color: white;
-  max-width: 50%;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  text-align: right; /* Align text to the right */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  max-width: 50%; /* Maintain a maximum width */
 }
 
 /* Title */

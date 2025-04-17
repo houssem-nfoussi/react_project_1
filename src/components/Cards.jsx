@@ -37,15 +37,17 @@ const Cards = () => {
               text: 'Le gaspillage alimentaire est estimé à 172 kg par personne par an.',
             },
             {
+              src: '/images/warehouse.jpg',
+              title: 'Surproduction',
+              text: 'Les grandes surfaces produisent plus que nécessaire, ce qui entraîne des surplus invendus jetés.',
+            },
+            {
               src: '/images/wasting.jpg',
               title: 'Gaspillage et Ressources',
               text: 'Le gaspillage alimentaire entraîne une perte considérable de ressources naturelles utilisées pour la production.',
             },
-            {
-              src: '/images/food.jpg',
-              title: 'Solutions Possibles',
-              text: 'Des solutions existent pour réduire le gaspillage alimentaire à tous les niveaux de la chaîne.',
-            },
+            
+              
           ].map((card, index) => (
             <motion.div
               className="box"

@@ -12,18 +12,18 @@ const items = [
   { key: 'login', label: 'Se déconnecter' },
 ];
 
+const fadeIn = {
+  hidden: { opacity: 0, y: -10 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.5 },
+  }),
+};
+
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: -10 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.5 },
-    }),
-  };
 
   const handleClick = (key) => {
     navigate(`/${key}`);
@@ -38,8 +38,9 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          🌱 Stop Gaspillage
+          🥕 FoodRescue
         </motion.div>
+
         <ul className="custom-menu">
           {items.map((item, index) => (
             <motion.li
