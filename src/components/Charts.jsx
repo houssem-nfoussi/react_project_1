@@ -5,6 +5,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recha
 import 'react-circular-progressbar/dist/styles.css';
 import './Charts.css';
 
+// Circular progress bar data: types of wasted food
 const wasteData = [
   { name: 'Pain', value: 113000, color: '#4CAF50' },
   { name: 'Fruits & Légumes', value: 30000, color: '#81C784' },
@@ -16,21 +17,30 @@ const wasteData = [
 
 const TOTAL_WASTE = wasteData.reduce((acc, curr) => acc + curr.value, 0);
 
+// Pie chart data: sources of food waste (in tonnes)
 const pieData = [
-  { name: 'Pain', value: 113000 },
-  { name: 'Fruits &  Légumes', value: 30000 },
-  { name: 'Céréales', value: 25000 },
-  { name: 'Produits Laitiers', value: 15000 },
-  { name: 'Huiles', value: 10000 },
-  { name: 'Autres', value: 20000 },
+  { name: 'Consommateurs', value: 90000 },
+  { name: 'Restaurants', value: 40000 },
+  { name: 'Supermarchés', value: 30000 },
+  { name: 'Agriculture', value: 20000 },
+  { name: 'Industries alimentaires', value: 20000 },
 ];
 
-const COLORS = ['#4CAF50', '#81C784', '#A5D6A7', '#C8E6C9', '#E6EE9C', '#F0F4C3'];
+const TOTAL_PIE_WASTE = pieData.reduce((acc, curr) => acc + curr.value, 0);
+
+// Colors from old pie chart
+const COLORS = ['#4CAF50', '#81C784', '#A5D6A7', '#C8E6C9', '#E6EE9C'];
 
 const formatCircularText = (name) => {
   const words = name.split(' ');
   return (
-    <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" style={{ fontSize: '1.1em', fontWeight: 500, fill: '#333' }}>
+    <text
+      x="50%"
+      y="50%"
+      dominantBaseline="middle"
+      textAnchor="middle"
+      style={{ fontSize: '1.1em', fontWeight: 500, fill: '#333' }}
+    >
       {words.slice(0, Math.ceil(words.length / 2)).join(' ')}
       {words.length > 1 && (
         <tspan x="50%" dy="1.2em" textAnchor="middle">
@@ -55,16 +65,17 @@ const Charts = () => {
         Statistiques sur le Gaspillage Alimentaire en Tunisie
       </h2>
       <p style={{ textAlign: 'center', marginBottom: '2rem', color: '#555' }}>
-        Ces statistiques fournissent un aperçu du gaspillage alimentaire en Tunisie, avec un focus sur les types de gaspillage alimentaire.
+        Ces statistiques fournissent un aperçu du gaspillage alimentaire en Tunisie, avec un focus sur les types et les sources.
       </p>
 
+      {/* Circular Progress Bars: Types of Wasted Food */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
         {wasteData.map((item, index) => (
           <div
             key={index}
             style={{
-              width: '170px', // Slightly larger container
-              height: '170px', // Slightly larger container
+              width: '170px',
+              height: '170px',
               margin: '1rem',
               textAlign: 'center',
               position: 'relative',
@@ -75,8 +86,8 @@ const Charts = () => {
               styles={{
                 path: {
                   stroke: item.color,
-                  strokeWidth: 8, // Slightly thinner stroke
-                  strokeLinecap: 'round', // Rounded ends for a smoother look
+                  strokeWidth: 8,
+                  strokeLinecap: 'round',
                 },
                 trail: {
                   stroke: '#d6d6d6',
@@ -85,25 +96,27 @@ const Charts = () => {
                 },
               }}
             />
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               {formatCircularText(item.name)}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Pie Chart remains the same */}
+      {/* Pie Chart: Sources of Food Waste */}
       <div style={{ marginTop: '2rem' }}>
-        <h3 style={{ textAlign: 'center', color: '#388E3C' }}>Répartition du Gaspillage Alimentaire</h3>
+        <h3 style={{ textAlign: 'center', color: '#388E3C' }}>Sources du Gaspillage Alimentaire</h3>
         <ResponsiveContainer width="100%" height={300} style={{ maxWidth: '500px', margin: '0 auto' }}>
           <PieChart>
             <Pie
@@ -114,13 +127,15 @@ const Charts = () => {
               cy="50%"
               outerRadius={80}
               labelLine={false}
-              label={({ name, value }) => `${name}: ${(value / TOTAL_WASTE * 100).toFixed(1)}%`}
+              label={({ name, value }) =>
+                `${name}: ${((value / TOTAL_PIE_WASTE) * 100).toFixed(1)}%`
+              }
             >
               {pieData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
-            <Tooltip formatter={(value) => `${value.toFixed(0)} tonnes`} />
+            <Tooltip formatter={(value) => `${value.toLocaleString()} tonnes`} />
             <Legend />
           </PieChart>
         </ResponsiveContainer>
